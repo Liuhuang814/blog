@@ -1,0 +1,37 @@
+
+<%- include  ../commn/header.html%>
+
+<form class="form-horizontal"  enctype="application/x-www-form-urlencode"  action="/users/reg" method="post" role="form">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="username" id="inputEmail3" placeholder="用户名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" name="pwd" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3"  name="pwd2"placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="邮箱">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">注册</button>
+    </div>
+  </div>
+</form>
+  </body>
+
+<%- include  ../commn/footer.html%>

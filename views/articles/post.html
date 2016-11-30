@@ -1,0 +1,54 @@
+
+<%- include  ../commn/header.html%>
+
+  <h3>发表文章</h3>
+<form class="form-horizontal" enctype="multipart/form-data" action="/article/post" method="post" role="form">
+  <% if(article){ %>
+  <input type="hidden" value="<%=article._id%>" name="_id"/>
+
+
+
+  <div class="form-group">
+    <label for="inputtitle" class="col-sm-2 control-label">标题</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="title" id="inputtitle" value="<%=article.title%>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="blogcontent" class="col-sm-2 control-label">内容</label>
+    <div class="col-sm-10">
+      <textarea name="content"  class="form-control"id="blogcontent" cols="30" rows="10"><%=article.content%></textarea>
+    </div>
+  </div>
+  <% }else{%>
+  <div class="form-group">
+    <label for="inputtitle" class="col-sm-2 control-label">标题</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="title" id="inputtitle" value="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="blogcontent" class="col-sm-2 control-label">内容</label>
+    <div class="col-sm-10">
+      <textarea name="content"  class="form-control"id="blogcontent" cols="30" rows="10"></textarea>
+    </div>
+  </div>
+
+  <%}%>
+
+  <div class="form-group">
+    <label for="img" class="col-sm-2 control-label">图片</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control"  name="img" id="img"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">提交</button>
+      <button type="reset" class="btn btn-default">重置</button>
+    </div>
+  </div>
+</form>
+
+
+<%- include  ../commn/footer.html%>

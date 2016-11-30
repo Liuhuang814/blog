@@ -1,0 +1,87 @@
+
+<%- include  commn/header.html%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h1>格言</h1>
+      <h4>
+        <p>谁不会休息，谁就不会工作。 —— 列宁</p>
+        <p>在年轻人的颈项上，没有什么东西能比事业心这颗灿烂的宝珠更迷人的了。 —— 哈菲兹</p>
+        <p>事业无穷年。 —— 韩愈</p>
+        <p>在学校和生活中，工作的最重要的动力是工作中的乐趣，是工作获得结果时的乐趣以及对这个结果的社会价值的认识。 —— 爱因斯坦</p>
+        <p>我们破灭的希望，流产的才能，失败的事业，受了挫折的雄心，往往积聚起来变为忌妒。 —— 巴尔扎克</p>
+        <p>先付报酬的工作是肯定干不好的。 —— 约·弗洛里奥</p>
+        <p>只有当全体居民都参加管理工作时，才能彻底进行反官僚主义的斗争，才能完全战胜官僚主义。 —— 列宁</p>
+        <p>我不能说我不珍重这些荣誉，并且我承认它很有价值，不过我却从来不曾为追求这些荣誉而工作。 —— 法拉第</p>
+        <p>当一个人用工作去迎接光明，光明很快就会来照耀着他。 —— 冯学峰</p>
+        <p>没有一件工作是旷日持久的，除了那件你不敢拌着手进行的工作。 —— 波德莱尔</p>
+        <p>教育者应当深刻了解正在成长的人的心灵只有在自己整个教育生涯中不断地研究学生的心理，加深自己的心理学知识，才能够成为教育工作的真正的能手。 —— 苏霍姆林斯基</p>
+        <p>感情有着极大的鼓舞力量，因此，它是一切道德行为的重要前提，谁要是没有强烈的志向，也就不能够热烈地把这个志向体现于事业中。 —— 凯洛夫</p>
+      </h4>
+      </div>
+    <div class="col-md-7"><img src="/libs/img/5c2c44d67335be9a448ee4ca573010af_爱奇艺.jpg" width="650"height="648"  alt=""></div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+    <%
+      articles.forEach(function(art){
+      %>
+
+      <div class="col-sm-6 col-md-4" >
+          <div class="thumbnail">
+             <% if(!art.img){
+              console.log(art.img)
+              %>
+
+              <img src="/libs/img/5.jpg" alt="...">
+
+
+             <% }else{
+              %>
+              <img src="<%=art.img%>" alt="...">
+              <%}%>
+        <div class="caption">
+            <%if(art.title){%>
+            <div style="display:block;white-space:nowrap; width:100%; overflow:hidden; text-overflow:ellipsis;">
+                <a href="/article/detail/<%=art._id%>"><h3><%=art.title%></h3></a>
+            </div>
+            <%}else{%>
+            <a href="/article/detail/<%=art._id%>"><h3>查看文章</h3></a>
+            <%}%>
+            <!--<img src="<%= art.user.avatar%>" alt="">-->
+            <div style="display:block;white-space:nowrap; width:100%; height:100px;overflow:hidden; text-overflow:ellipsis;">
+                <p><%-art.content%></p>
+            </div>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            <p class="p2">
+                <a href=""><%=art.user.username%></a>&nbsp;发布于：<%=art.createTime.toLocaleString()%>
+                阅读:(<%= art.pv %>) |
+                评论:(<%= art.comments.length%>)
+            </p>
+        </div>
+    </div>
+      </div>
+    <%
+          });
+          %>
+    </div>
+  </div>
+<nav>
+  <ul class="pagination">
+    <li><a href="">&laquo;</a></li>
+    <%
+    for(var i=1;i<=totalPage;i++){
+    %>
+    <li><a href="/article/list/<%=i%>/<%=pageSize%>?keyword=<%=keyword%>"><%=i%></a></li>
+
+    <%
+    }
+    %>
+    <li><a href="#">&raquo;</a></li>
+  </ul>
+</nav>
+
+  </body>
+<%- include  commn/footer.html%>
